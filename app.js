@@ -1,7 +1,7 @@
 import React from 'react-native';
 
 let { View, Text, StyleSheet, Image } = React;
-var API_Key = "1176b2f08ef2036c6811ebc7ff660829";
+var API_Key = require('./config');
 var getImage = require('./getImage');
 
 var App = React.createClass({
@@ -22,11 +22,21 @@ var App = React.createClass({
           humidity: data.currently.humidity,
           summary: data.currently.summary,
           wind: data.currently.windSpeed,
-          icon: data.currently.icon
+          icon: data.currently.icon,
+          loading: false
         })
      })
   },
+
   render: function() {
+
+    if(this.state.loading) {
+      return(
+        <View style={[styles.half, styles.vertical, styles.center]}>
+          <Text style={styles.text}>Loading...</Text>
+        </View>
+      )
+    }
 
     return (
       <View style={styles.container}>

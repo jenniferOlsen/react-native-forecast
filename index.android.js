@@ -18,4 +18,4 @@ class forecastchick extends Component {
   }
 }
 
-AppRegistry.registerComponent('testProject', () => forecastchick);
+AppRegistry.registerComponent('ReactNativeForecast', () => forecastchick);
